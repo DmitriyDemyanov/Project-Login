@@ -6,9 +6,11 @@ import { validate } from './helpers/validate';
 import { showInputError, removeInputError } from './views/form';
 import { login } from './servises/auth.servise';
 import { notify } from './views/notification';
+import { getNews } from './servises/news.servise';
 
 const { form, inputEmail, inputPassword } = UI;
 const inputs = [inputEmail, inputPassword];
+
 // Ewents
 
 form.addEventListener('submit', (e) => {
@@ -34,7 +36,7 @@ async function onSubmit() {
 
   try {
     await login(inputEmail.value, inputPassword.value);
-  
+    await getNews();
     form.reset();
 
     
@@ -43,10 +45,11 @@ async function onSubmit() {
 
   } catch(err) {
     
-    notify({mas: 'Login faild', className: 'alert-danger'});
+    notify({msg: 'Login failed', className: 'alert-danger'});
   }
 
 }
 
-
+// denis.m.pcspace@gmail.com
+// dmgame12345
 

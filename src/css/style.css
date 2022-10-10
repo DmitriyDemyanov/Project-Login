@@ -4,7 +4,7 @@
 
 .login-form-wrap {
   width: 50%;
-  background-color: yellow;
+  /* background-color: yellow; */
  
 }
 
@@ -12,7 +12,7 @@
   max-width: 500px;
   width: 100%;
   margin-right: 30px;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 
 .login-form-wrap .form-card .card-title {
@@ -47,5 +47,5 @@ div.login-greeting-screen {
 }
 
 .form-control {
-  background-color: yellow;
+  background-color: rgb(177, 177, 72);
 }

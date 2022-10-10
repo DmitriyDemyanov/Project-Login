@@ -12,8 +12,6 @@ function notifyContainerTemplate() {
 }
 
 function alertTemplate(msg, className, index) {
-  console.log("_________",index);
-  console.log(className);
   return `
   <div class="alert ${className}" data-index="${index}">
    ${msg} </div>
@@ -39,7 +37,7 @@ function getAlertIndex() {
  * @param {number} settings.timeout  
  */
 
-export function notify({ msg = 'info message', className = 'alert-info',  timeout = 2000,
+export function notify({ msg = 'info message', className = 'alert-info',  timeout = 20000,
 } = {}) {
   if (!getContainer()) {
     createNotifyContainer();
