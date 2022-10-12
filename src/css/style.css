@@ -70,4 +70,11 @@ div.login-greeting-screen {
   
 }
 
+.dropdown-wrap {
+  display: flex;
+  justify-content:space-between;
+}
 
+button.btn-secondary {
+  background-color:rgb(177, 177, 72);
+}
