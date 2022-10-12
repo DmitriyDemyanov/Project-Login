@@ -1,17 +1,10 @@
-import axios from "../plugins/axios";
+import axios from '../plugins/axios';
 
-
-
-
-
-export  async function getNews() {
+export async function getNews() {
   try {
-    const response = await axios.get('/news')
-    console.log(">>>>>>", response);
+    const response = await axios.get('/news');
     return response;
-
   } catch (err) {
-    console.log("!!!!!!!!!!!!!", response);
     return Promise.reject(err);
   }
 }

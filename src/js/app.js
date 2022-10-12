@@ -11,16 +11,6 @@ import { getNews } from './servises/news.servise';
 const { form, inputEmail, inputPassword } = UI;
 const inputs = [inputEmail, inputPassword];
 
-// Ewents
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  onSubmit();
-})
-
-inputs.forEach(el => el.addEventListener('focus', () => removeInputError(el)));
-
-
 // Handlers
 
 async function onSubmit() {
@@ -39,17 +29,28 @@ async function onSubmit() {
     await getNews();
     form.reset();
 
-    
-
-    notify({ msg: 'Login success' , classname: 'alert-success' })
-
-  } catch(err) {
-    
-    notify({msg: 'Login failed', className: 'alert-danger'});
+    notify({ msg: 'Login success', classname: 'alert-success' });
+  } catch (err) {
+    notify({ msg: 'Login failed', className: 'alert-danger' });
   }
-
 }
 
 // denis.m.pcspace@gmail.com
 // dmgame12345
 
+// Events
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  onSubmit();
+});
+
+inputs.forEach((el) => el.addEventListener('focus', () => removeInputError(el)));
+
+let x = 1;
+
+x++;
+
+const f = 1;
+
+console.log('>>>>>', x, f);

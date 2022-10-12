@@ -1,21 +1,18 @@
-
-
 function getContainer() {
   return document.querySelector('.notify-container');
 }
 
-
 function notifyContainerTemplate() {
-  return`
+  return `
     <div class="notify-container" style="position: fixed; top: 10px; right: 10px; z-index: 99;"></div>
-  `
+  `;
 }
 
 function alertTemplate(msg, className, index) {
   return `
   <div class="alert ${className}" data-index="${index}">
    ${msg} </div>
-  `
+  `;
 }
 
 function createNotifyContainer() {
@@ -24,33 +21,16 @@ function createNotifyContainer() {
 }
 
 function getAlertIndex() {
- 
   return document.querySelectorAll('.notify-container .alert').length;
 }
-
 
 /**
  * function notify. Show notification message
  * @param {Object} settings
- * @param {string} settings.msg 
+ * @param {string} settings.msg
  * @param {string} settings.className
- * @param {number} settings.timeout  
+ * @param {number} settings.timeout
  */
-
-export function notify({ msg = 'info message', className = 'alert-info',  timeout = 20000,
-} = {}) {
-  if (!getContainer()) {
-    createNotifyContainer();
-  }
-  const index = getAlertIndex();
-  const template = alertTemplate(msg, className, index);
-
-  const container = getContainer();
-  
-  container.insertAdjacentHTML('beforeend', template);
-
-  setTimeout(() => closeNotify(index), timeout);
-} 
 
 export function closeNotify(index) {
   let alert;
@@ -58,8 +38,7 @@ export function closeNotify(index) {
   if (index === undefined) {
     alert = document.querySelector('.notify-container .alert');
   } else {
-    alert = document.querySelector(`.notify-container .alert[data-index="${index}"]`,
-    );
+    alert = document.querySelector(`.notify-container .alert[data-index="${index}"]`);
   }
 
   if (!alert) {
@@ -68,5 +47,23 @@ export function closeNotify(index) {
   }
 
   const container = getContainer();
-  container.removeChild(alert);  
+  container.removeChild(alert);
+}
+
+export function notify({
+  msg = 'info message',
+  className = 'alert-info',
+  timeout = 20000,
+} = {}) {
+  if (!getContainer()) {
+    createNotifyContainer();
+  }
+  const index = getAlertIndex();
+  const template = alertTemplate(msg, className, index);
+
+  const container = getContainer();
+
+  container.insertAdjacentHTML('beforeend', template);
+
+  setTimeout(() => closeNotify(index), timeout);
 }

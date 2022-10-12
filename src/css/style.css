@@ -21,7 +21,7 @@
 }
 
 .registration {
-  /* display: none; */
+  display: initial;
 }
 
 .login-form-wrap .form-card .card-title {
