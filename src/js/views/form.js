@@ -33,3 +33,9 @@ export function removeInputError(el) {
   el.classList.remove('is-invalid');
   parent.removeChild(err);
 }
+
+const obj = {
+  name: 'Dima',
+};
+
+const name = obj.name;
